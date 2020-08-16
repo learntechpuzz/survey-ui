@@ -1,14 +1,36 @@
 import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
 import { create } from 'jss';
 import rtl from 'jss-rtl';
 import { StylesProvider, jssPreset, ThemeProvider } from '@material-ui/styles';
 import theme from './assets/theme';
-import { Typography, FormControl, Select, MenuItem } from '@material-ui/core';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
+import Container from '@material-ui/core/Container';
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardMedia from '@material-ui/core/CardMedia';
+import Header from './components/header/Header';
+import HomeImageEn from './assets/images/home_en.png'
+import HomeImageAr from './assets/images/home_ar.png'
+
+
 
 // Configure JSS
 const jss = create({ plugins: [...jssPreset().plugins, rtl()] });
 
+const useStyles = makeStyles({
+  root: {
+    maxWidth: 780,
+  },
+  media: {
+    height: 200,
+  },
+});
+
 function App() {
+  const classes = useStyles();
   const [lang, changeLanguage] = React.useState('ltr');
   const handleChangeLanguage = (event) => {
     let dir = event.target.value;
@@ -20,13 +42,24 @@ function App() {
     <ThemeProvider theme={theme}>
     <StylesProvider jss={jss}>
       <div>
+        <Container className={classes.root}>
+        <Header/>
         <FormControl>
           <Select id="lang" value={lang} onChange={ handleChangeLanguage }>
             <MenuItem value="ltr">English</MenuItem>
             <MenuItem value="rtl">Arabic</MenuItem>
           </Select>
         </FormControl>
-        <Typography>Hello World!</Typography>  
+        <Card>
+          <CardActionArea>
+            <CardMedia
+            className={classes.media}
+            image={theme.direction === "ltr" ? HomeImageEn : HomeImageAr}
+            title="home"
+            />
+          </CardActionArea>
+        </Card>          
+        </Container>
       </div>
     </StylesProvider>
     </ThemeProvider>
