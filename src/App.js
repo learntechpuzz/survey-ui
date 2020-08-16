@@ -47,7 +47,7 @@ function App() {
         <FormControl>
           <Select id="lang" value={lang} onChange={ handleChangeLanguage }>
             <MenuItem value="ltr">English</MenuItem>
-            <MenuItem value="rtl">Arabic</MenuItem>
+            <MenuItem value="rtl">العربية</MenuItem>
           </Select>
         </FormControl>
         <Card>
