@@ -38,36 +38,36 @@ function App() {
     changeLanguage(dir);
     document.querySelector("#root").setAttribute("dir", dir);
     theme.direction = dir;
-}  
+  }
   return (
     <ThemeProvider theme={theme}>
-    <StylesProvider jss={jss}>
-      <div>
-        <Container className={classes.root}>
-        <Header/>
-        <Card>
-          <CardContent>
-            <FormControl>
-              <Select id="lang" value={lang} onChange={ handleChangeLanguage }>
-                <MenuItem value="ltr">English</MenuItem>
-                <MenuItem value="rtl">العربية</MenuItem>
-              </Select>
-            </FormControl>
-          </CardContent>  
-          <CardActionArea>
-            <CardMedia
-            className={classes.media}
-            image={content(HomeImageEn, HomeImageAr)}
-            title="home"
-            />
-          </CardActionArea>
-          <CardContent>
-            <Survey/>
-          </CardContent>
-        </Card>          
-        </Container>
-      </div>
-    </StylesProvider>
+      <StylesProvider jss={jss}>
+        <div>
+          <Container className={classes.root}>
+            <Header />
+            <Card>
+              <CardContent>
+                <FormControl>
+                  <Select id="lang" value={lang} onChange={handleChangeLanguage}>
+                    <MenuItem value="ltr">English</MenuItem>
+                    <MenuItem value="rtl">العربية</MenuItem>
+                  </Select>
+                </FormControl>
+              </CardContent>
+              <CardActionArea>
+                <CardMedia
+                  className={classes.media}
+                  image={content(HomeImageEn, HomeImageAr)}
+                  title="home"
+                />
+              </CardActionArea>
+              <CardContent>
+                <Survey />
+              </CardContent>
+            </Card>
+          </Container>
+        </div>
+      </StylesProvider>
     </ThemeProvider>
   );
 }
