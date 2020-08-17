@@ -15,8 +15,8 @@ import CardContent from '@material-ui/core/CardContent';
 import Header from './components/header/Header';
 import HomeImageEn from './assets/images/home_en.png'
 import HomeImageAr from './assets/images/home_ar.png'
-import ProgressMobileStepper from './components/home/ProgressMobileStepper';
 import content from './components/utils/ContentUtil';
+import Survey from './components/home/Survey';
 
 // Configure JSS
 const jss = create({ plugins: [...jssPreset().plugins, rtl()] });
@@ -62,7 +62,7 @@ function App() {
             />
           </CardActionArea>
           <CardContent>
-            <ProgressMobileStepper/>
+            <Survey/>
           </CardContent>
         </Card>          
         </Container>
