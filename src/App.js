@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { create } from 'jss';
 import rtl from 'jss-rtl';
 import { StylesProvider, jssPreset, ThemeProvider } from '@material-ui/styles';
-import theme from './assets/theme';
+import theme from './theme';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -16,7 +16,7 @@ import Header from './components/header/Header';
 import HomeImageEn from './assets/images/home_en.png'
 import HomeImageAr from './assets/images/home_ar.png'
 import ProgressMobileStepper from './components/home/ProgressMobileStepper';
-
+import content from './components/utils/ContentUtil';
 
 // Configure JSS
 const jss = create({ plugins: [...jssPreset().plugins, rtl()] });
@@ -57,7 +57,7 @@ function App() {
           <CardActionArea>
             <CardMedia
             className={classes.media}
-            image={theme.direction === "ltr" ? HomeImageEn : HomeImageAr}
+            image={content(HomeImageEn, HomeImageAr)}
             title="home"
             />
           </CardActionArea>

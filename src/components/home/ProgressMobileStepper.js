@@ -1,9 +1,10 @@
 import React from 'react';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import MobileStepper from '@material-ui/core/MobileStepper';
 import Button from '@material-ui/core/Button';
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
+import content from './../utils/ContentUtil';
 
 const useStyles = makeStyles({
   root: {
@@ -14,7 +15,6 @@ const useStyles = makeStyles({
 
 export default function ProgressMobileStepper() {
   const classes = useStyles();
-  const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
 
   const handleNext = () => {
@@ -34,14 +34,14 @@ export default function ProgressMobileStepper() {
       className={classes.root}
       nextButton={
         <Button size="small" onClick={handleNext} disabled={activeStep === 5}>
-          {theme.direction === "ltr" ? "Next" : "التالى"}
-          {theme.direction === 'rtl' ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
+          {content("Next", "التالى")}
+          {content(<KeyboardArrowRight />, <KeyboardArrowLeft />)}
         </Button>
       }
       backButton={
         <Button size="small" onClick={handleBack} disabled={activeStep === 0}>
-          {theme.direction === 'rtl' ? <KeyboardArrowRight /> : <KeyboardArrowLeft />}
-          {theme.direction === "ltr" ? "Back" : "عودة"}
+          {content(<KeyboardArrowLeft />, <KeyboardArrowRight />)}
+          {content("Back", "عودة")}
         </Button>
       }
     />

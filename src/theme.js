@@ -1,8 +1,8 @@
 import {createMuiTheme} from '@material-ui/core/styles';
 
-var dir = "ltr";
 const theme = createMuiTheme({
-    direction: dir,
+    direction: 'ltr',
   });
 
 export default theme;
+
