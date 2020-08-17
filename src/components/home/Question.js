@@ -6,10 +6,10 @@ import Answers from './Answers';
 const Question = ({ question }) => {
     return (
         <div>
-        <Typography>
-            {content(question.questionEn, question.questionAr)}
-        </Typography>
-        <Answers questionId={question.id} answers={question.answers}/>
+            <Typography>
+                {content(question.questionEn, question.questionAr)}
+            </Typography>
+            {question.answers.length > 0 ? <Answers questionId={question.id} answers={question.answers} /> : null}
         </div>
     );
 }
