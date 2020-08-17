@@ -11,10 +11,11 @@ import Container from '@material-ui/core/Container';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardMedia from '@material-ui/core/CardMedia';
+import CardContent from '@material-ui/core/CardContent';
 import Header from './components/header/Header';
 import HomeImageEn from './assets/images/home_en.png'
 import HomeImageAr from './assets/images/home_ar.png'
-
+import ProgressMobileStepper from './components/home/ProgressMobileStepper';
 
 
 // Configure JSS
@@ -44,13 +45,15 @@ function App() {
       <div>
         <Container className={classes.root}>
         <Header/>
-        <FormControl>
-          <Select id="lang" value={lang} onChange={ handleChangeLanguage }>
-            <MenuItem value="ltr">English</MenuItem>
-            <MenuItem value="rtl">العربية</MenuItem>
-          </Select>
-        </FormControl>
         <Card>
+          <CardContent>
+            <FormControl>
+              <Select id="lang" value={lang} onChange={ handleChangeLanguage }>
+                <MenuItem value="ltr">English</MenuItem>
+                <MenuItem value="rtl">العربية</MenuItem>
+              </Select>
+            </FormControl>
+          </CardContent>  
           <CardActionArea>
             <CardMedia
             className={classes.media}
@@ -58,6 +61,9 @@ function App() {
             title="home"
             />
           </CardActionArea>
+          <CardContent>
+            <ProgressMobileStepper/>
+          </CardContent>
         </Card>          
         </Container>
       </div>
