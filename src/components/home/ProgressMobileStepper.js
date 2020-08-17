@@ -6,6 +6,7 @@ import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import content from './../utils/ContentUtil';
 import Question from './Question';
+import Box from '@material-ui/core/Box'
 
 const useStyles = makeStyles({
   root: {
@@ -29,6 +30,7 @@ export default function ProgressMobileStepper({ questions }) {
     <div>
       <Question question={questions[activeStep]} />
       {activeStep < questions.length - 1 ?
+        <Box pt={3}>
         <MobileStepper
           variant="progress"
           steps={questions.length}
@@ -48,6 +50,7 @@ export default function ProgressMobileStepper({ questions }) {
             </Button> : null
           }
         />
+        </Box>
         : null}
     </div>
   );
