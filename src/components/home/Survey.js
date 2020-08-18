@@ -15,7 +15,7 @@ class Survey extends Component {
     }
 
     fetchSurvey() {
-        axios.get("http://localhost:7001/api/survey/1")
+        axios.get("http://localhost:7001/api/survey?st=Pga9NRl/vtU")
             .then(response => {
                 this.setState({ questions: response.data.questions })
             });
