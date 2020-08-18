@@ -31,25 +31,25 @@ export default function ProgressMobileStepper({ questions }) {
       <Question question={questions[activeStep]} />
       {activeStep < questions.length - 1 ?
         <Box pt={3}>
-        <MobileStepper
-          variant="progress"
-          steps={questions.length}
-          position="static"
-          activeStep={activeStep}
-          className={classes.root}
-          nextButton={
-            <Button size="small" onClick={handleNext} disabled={activeStep === questions.length - 1}>
-              {content("Next", "التالى")}
-              {content(<KeyboardArrowRight />, <KeyboardArrowLeft />)}
-            </Button>
-          }
-          backButton={activeStep > 0 ?
-            <Button size="small" onClick={handleBack} disabled={activeStep === 0}>
-              {content(<KeyboardArrowLeft />, <KeyboardArrowRight />)}
-              {content("Back", "عودة")}
-            </Button> : null
-          }
-        />
+          <MobileStepper
+            variant="progress"
+            steps={questions.length}
+            position="static"
+            activeStep={activeStep}
+            className={classes.root}
+            nextButton={
+              <Button size="small" onClick={handleNext} disabled={activeStep === questions.length - 1}>
+                {content("Next", "التالى")}
+                {content(<KeyboardArrowRight />, <KeyboardArrowLeft />)}
+              </Button>
+            }
+            backButton={activeStep > 0 ?
+              <Button size="small" onClick={handleBack} disabled={activeStep === 0}>
+                {content(<KeyboardArrowLeft />, <KeyboardArrowRight />)}
+                {content("Back", "عودة")}
+              </Button> : null
+            }
+          />
         </Box>
         : null}
     </div>
