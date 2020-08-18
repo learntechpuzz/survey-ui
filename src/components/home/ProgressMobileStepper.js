@@ -7,12 +7,19 @@ import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import content from './../utils/ContentUtil';
 import Question from './Question';
 import Box from '@material-ui/core/Box'
+import { green } from "@material-ui/core/colors";
 
 const useStyles = makeStyles({
   root: {
     maxWidth: 780,
     flexGrow: 1,
-  },
+    '& .MuiMobileStepper-progress': {
+      backgroundColor: green[200]
+    },
+    '& .MuiLinearProgress-barColorPrimary': {
+      backgroundColor: green[600]
+    },
+  }
 });
 
 export default function ProgressMobileStepper({ questions }) {

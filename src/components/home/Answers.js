@@ -4,20 +4,28 @@ import Checkboxes from './CheckBoxes';
 import TextBox from './TextBox';
 
 const Answers = ({ questionId, answers }) => {
-    const result = (type) => {
+
+    const answersMap = answers.reduce((a, e) =>
+        ((a[e.type] = a[e.type] || []).push(e), a), {});
+
+    const renderAnswers = (type, answersList) => {
         switch (type) {
             case 'RADIO':
-                return <Radios questionId={questionId} answers={answers} />;
+                return <Radios key={type} questionId={questionId} answers={answersList} />;
             case 'CHECKBOX':
-                return <Checkboxes questionId={questionId} answers={answers} />;
+                return <Checkboxes key={type} questionId={questionId} answers={answersList} />;
             case 'TEXTBOX':
-                return <TextBox questionId={questionId} answers={answers} />;    
+                return <TextBox key={type} questionId={questionId} answers={answersList} />;
             default:
                 return null;
         }
     }
+
+    const answersResult = Object.keys(answersMap).map(key =>
+        renderAnswers(key, answersMap[key]));
+
     return (
-        <div>{result('TEXTBOX')}</div>
+        <div>{answersResult}</div>
     );
 }
 export default Answers;

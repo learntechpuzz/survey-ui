@@ -22,6 +22,9 @@ import Survey from './components/home/Survey';
 const jss = create({ plugins: [...jssPreset().plugins, rtl()] });
 
 const useStyles = makeStyles({
+  formControl: {
+    minWidth: 80
+  },
   root: {
     maxWidth: 780,
   },
@@ -47,7 +50,7 @@ function App() {
             <Header />
             <Card>
               <CardContent>
-                <FormControl>
+                <FormControl className={classes.formControl}>
                   <Select id="lang" value={lang} onChange={handleChangeLanguage}>
                     <MenuItem value="ltr">English</MenuItem>
                     <MenuItem value="rtl">العربية</MenuItem>

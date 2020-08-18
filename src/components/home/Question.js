@@ -8,7 +8,7 @@ const Question = ({ question }) => {
     return (
         <div>
             <Box pt={3}>
-            <Typography>
+            <Typography variant="subtitle2">
                 {content(question.questionEn, question.questionAr)}
             </Typography>
             </Box>

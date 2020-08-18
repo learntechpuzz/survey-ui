@@ -9,14 +9,14 @@ import { green } from "@material-ui/core/colors";
 
 const GreenRadio = withStyles({
     root: {
-      color: green[400],
-      "&$checked": {
-        color: green[600]
-      }
+        color: green[400],
+        "&$checked": {
+            color: green[600]
+        },
     },
     checked: {}
-  })((props) => <Radio color="default" {...props} />);
-  
+})((props) => <Radio color="default" {...props} />);
+
 const Radios = ({ questionId, answers }) => {
 
     const answersList = answers.map((answer) => {
@@ -24,7 +24,7 @@ const Radios = ({ questionId, answers }) => {
             <FormControlLabel
                 key={answer.id}
                 value={questionId + '_' + answer.id}
-                control={<GreenRadio size="small"/>}
+                control={<GreenRadio size="small" />}
                 label={content(answer.answerEn, answer.answerAr)}
                 labelPlacement="top"
             />
@@ -33,7 +33,7 @@ const Radios = ({ questionId, answers }) => {
 
     return (
         <FormControl component="fieldset">
-            <RadioGroup row aria-label={'q' + questionId} name={ 'q' + questionId} >
+            <RadioGroup row aria-label={'q' + questionId} name={'q' + questionId} >
                 {answersList}
             </RadioGroup>
         </FormControl>

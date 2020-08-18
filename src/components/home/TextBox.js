@@ -5,6 +5,7 @@ import content from './../utils/ContentUtil'
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import { makeStyles } from '@material-ui/core/styles';
 import { green } from "@material-ui/core/colors";
+import Box from '@material-ui/core/Box'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -39,15 +40,17 @@ const Textbox = ({ questionId, answers }) => {
             <FormControlLabel
                 className={classes.root}
                 key={answer.id}
-                control={<TextField label={content(answer.answerEn, answer.answerAr)} id={answer.id} multiline rows={4} variant="outlined" />}
+                control={<TextField label={content(answer.answerEn, answer.answerAr)} id={questionId + '_' + answer.id} multiline rows={4} variant="outlined" />}
             />
         )
     });
 
     return (
-        <FormControl component="fieldset">
-            {answersList}
-        </FormControl>
+        <Box pt={3}>
+            <FormControl component="fieldset">
+                {answersList}
+            </FormControl>
+        </Box>
     );
 }
 
