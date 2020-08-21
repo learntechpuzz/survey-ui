@@ -9,9 +9,7 @@ class Survey extends Component {
             questions: [],
             st: props.st
         };
-
     }
-
     componentDidMount() {
         this.fetchSurvey();
     }
