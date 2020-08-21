@@ -17,6 +17,7 @@ import HomeImageEn from './../../assets/images/home_en.png'
 import HomeImageAr from './../../assets/images/home_ar.png'
 import content from './../../components/utils/ContentUtil';
 import Survey from './Survey';
+import { useLocation } from "react-router-dom";
 
 // Configure JSS
 const jss = create({ plugins: [...jssPreset().plugins, rtl()] });
@@ -33,7 +34,14 @@ const useStyles = makeStyles({
   },
 });
 
+
+function useQuery() {
+  return new URLSearchParams(useLocation().search);
+}
+
+
 function Home() {
+  let query = useQuery();
   const classes = useStyles();
   const [lang, changeLanguage] = React.useState('ltr');
   const handleChangeLanguage = (event) => {
@@ -65,7 +73,7 @@ function Home() {
                 />
               </CardActionArea>
               <CardContent>
-                <Survey />
+                <Survey st={query.get("st")} />
               </CardContent>
             </Card>
           </Container>
