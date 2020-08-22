@@ -1,4 +1,4 @@
-# Stage 0, "build-stage", based on Node.js to build the frontend
+# Stage 0, "build-stage", using Node.js to build the survey-ui
 FROM node:alpine as build
 WORKDIR /app
 COPY package*.json ./
@@ -6,7 +6,7 @@ RUN npm install
 COPY . ./
 RUN npm run build
 
-# Stage 1, based on NGINX to provide a configuration to be used with react-router
+# Stage 1, run survey-ui
 FROM nginx:alpine
 COPY --from=build /app/build /usr/share/nginx/html
 COPY nginx/nginx.conf /etc/nginx/conf.d/default.conf
